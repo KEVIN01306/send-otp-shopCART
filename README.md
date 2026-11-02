@@ -30,7 +30,7 @@ Microservicio centralizado diseñado bajo **Clean Architecture (Hexagonal)** par
 Antes de comenzar, asegúrate de tener instalado en tu sistema:
 - **Node.js**: Versión 18.x o superior (recomendado 20.x o superior).
 - **npm**: Gestor de paquetes incluido con Node.
-- **MySQL**: Versión 8.0 o compatible (o MariaDB).
+- **PostgreSQL**: Versión 12 o superior.
 - Una cuenta en [Resend](https://resend.com) para el envío de correos.
 
 ---
@@ -66,7 +66,7 @@ El archivo `.env.example` contiene la plantilla de todas las variables necesaria
 | Variable | ¿Para qué sirve? | ¿Cómo conseguirla o generarla? | Ejemplo |
 | :--- | :--- | :--- | :--- |
 | `PORT` | Puerto de red en el que escuchará el servidor Express. | Elige cualquier puerto disponible en tu servidor o máquina local. | `8000` |
-| `DATABASE_URL` | Cadena de conexión JDBC/MySQL hacia tu base de datos para Prisma. | Formato: `mysql://<USUARIO>:<PASSWORD>@<HOST>:<PUERTO>/<NOMBRE_BD>`. Debes crear la base de datos en MySQL antes de conectar. | `"mysql://root:admin123@localhost:3306/otp_microservice_db"` |
+| `DATABASE_URL` | Cadena de conexión JDBC/PostgreSQL hacia tu base de datos para Prisma. | Formato: `postgresql://<USUARIO>:<PASSWORD>@<HOST>:<PUERTO>/<NOMBRE_BD>?schema=public`. Debes tener la base de datos creada en PostgreSQL antes de conectar. | `"postgresql://postgres:admin123@localhost:5432/otp_microservice_db?schema=public"` |
 | `FRONTEND_URL` | URL del frontend cliente permitido por CORS y redirecciones. | La URL base de tu frontend en desarrollo o producción. | `http://localhost:8001` |
 | `JWT_SECRET` | Secreto criptográfico de alta entropía utilizado para firmar tokens. | Puedes generar una cadena segura ejecutando en tu terminal: `openssl rand -base64 32` | `"3+(n88v4O\`V%vhFEw31j8M9{~uQbK4;("` |
 | `JWT_ISS` | Identificador del emisor (Issuer) del token JWT. | Tu dominio o el identificador del microservicio. | `"https://otp.send.com"` |
@@ -112,7 +112,7 @@ El archivo `.env.example` contiene la plantilla de todas las variables necesaria
 
 ## 🗄️ Base de Datos con Prisma (Comandos y Configuración)
 
-Este proyecto utiliza **Prisma ORM** con MySQL. Todos los modelos se encuentran definidos en [backend/prisma/schema.prisma](file:///Applications/send-otp/backend/prisma/schema.prisma).
+Este proyecto utiliza **Prisma ORM** con PostgreSQL. Todos los modelos se encuentran definidos en [backend/prisma/schema.prisma](file:///Applications/send-otp/backend/prisma/schema.prisma).
 
 ### 1. Iniciar o sincronizar la Base de Datos (`db push`)
 Aplica directamente los cambios del esquema a la base de datos sin generar archivos de migración (ideal para desarrollo rápido y primera inicialización):

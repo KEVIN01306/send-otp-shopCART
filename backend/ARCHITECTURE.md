@@ -63,7 +63,7 @@ Servicio backend centralizado diseñado bajo **Clean Architecture / Hexagonal Ar
 └──────────────┬───────────────┘ └────────────┬───────────────┘
                │                              │
                ▼                              ▼
-        [ Base de Datos MySQL ]           [ Resend API ]
+        [ Base de Datos PostgreSQL ]      [ Resend API ]
 ```
 
 ---
@@ -490,7 +490,7 @@ model AuditLog {
 
 ```env
 # Base de Datos
-DATABASE_URL="mysql://root:password@localhost:3306/otp_microservice_db"
+DATABASE_URL="postgresql://postgres:password@localhost:5432/otp_microservice_db?schema=public"
 
 # Servidor
 PORT=3000

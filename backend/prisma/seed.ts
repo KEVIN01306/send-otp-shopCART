@@ -16,9 +16,9 @@ async function main() {
 
         const project = await prisma.project.create({
             data: {
-                name: 'Default App',
-                slug: 'default-app',
-                description: 'Proyecto por defecto para integración y desarrollo',
+                name: 'shopCART',
+                slug: 'shopCART',
+                description: 'Proyecto para integración y desarrollo de shopCART',
                 isActive: true,
             },
         });
