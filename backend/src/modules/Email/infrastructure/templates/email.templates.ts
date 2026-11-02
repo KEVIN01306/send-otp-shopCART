@@ -24,7 +24,7 @@ export interface EmailContent {
   text: string;
 }
 
-const DEFAULT_LOGO_URL = 'https://pub-d05514d87a39422cbf9453e8ec02d871.r2.dev/send-otp.jpeg';
+const DEFAULT_LOGO_URL = 'https://pub-d05514d87a39422cbf9453e8ec02d871.r2.dev/logo_shop_cart.png';
 
 /**
  * Plantilla minimalista y directa para códigos OTP.
